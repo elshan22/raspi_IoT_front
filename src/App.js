@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
+import {Grid} from "@material-ui/core";
+import Navbar from "./Components/Navbar";
 import './App.css';
+import {useTheme} from "./Components/ThemeContext";
+import EspNodes from "./Components/EspNodes";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+
+export default function App () {
+    const {darkMode} = useTheme();
+
+    useEffect(() => {document.body.style.backgroundColor = darkMode? '#333333': '#cccccc'}, [darkMode]);
+
+    return (
+            <Grid container spacing={4}>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <Navbar />
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <EspNodes />
+                </Grid>
+            </Grid>
+    );
+};
