@@ -11,19 +11,9 @@ import {BASE_URL} from "../index";
 import Reporter from "./Reporter";
 
 export default function EspCard( {info} ) {
-    const [connection, setConnection] = useState('disconnected');
     const navigate = useNavigate();
     const {darkMode} = useTheme();
 
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            axios.get(BASE_URL + 'node/' + info['id'] + '/')
-                .then(response => setConnection(response.data['connected']))
-                .catch(error => console.log(error.response.status));
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
 
     const type_map = {'AC': 'Actuator', 'SE': 'Sensor'}
 
@@ -52,7 +42,8 @@ export default function EspCard( {info} ) {
                         <Typography variant='body1' style={darkMode? textStyleDark: textStyle}>Connection Status:</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant='body1' style={{ color: (connection==='disconnected')? '#e33030': '#22723a'}}>{connection}</Typography>
+                        <Typography variant='body1' style={{ color: (info['connected'])? '#22723a': '#e33030'}}>{
+                            (info['connected']? '': 'dis') + 'connected'}</Typography>
                     </Grid>
                 </Grid>
             </CardContent>

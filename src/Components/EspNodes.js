@@ -10,9 +10,12 @@ export default function EspNodes() {
     const [nodes, setNodes] = useState([]);
 
     useEffect(() => {
-        axios.get(BASE_URL + 'nodes/all/')
-            .then((response) => setNodes(response.data))
-            .catch(error => {});
+        const interval = setInterval(() => {
+            axios.get(BASE_URL + 'nodes/all/')
+                .then(response => setNodes(response.data))
+                .catch(error => console.log(error.response.status));
+        }, 1000);
+        return () => clearInterval(interval);
     }, []);
 
     return (
