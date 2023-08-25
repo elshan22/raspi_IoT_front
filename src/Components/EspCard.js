@@ -19,10 +19,7 @@ export default function EspCard( {info} ) {
     useEffect(() => {
         const interval = setInterval(() => {
             axios.get(BASE_URL + 'node/' + info['id'] + '/')
-                .then(response => {
-                    if (response.data['last_difference'] > 6) setConnection('disconnected');
-                    else setConnection('connected');
-                })
+                .then(response => setConnection(response.data['connected']))
                 .catch(error => console.log(error.response.status));
         }, 1000);
         return () => clearInterval(interval);
