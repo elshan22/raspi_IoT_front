@@ -52,8 +52,8 @@ export default function SchedulePage() {
         const minute = parseInt(document.getElementById('minute').value);
         const second = parseInt(document.getElementById('second').value);
         const data = {"node_id": nodeId, "blink_count": blink_count, "blink_length": blink_length,
-                           "year": year, "month": monthVal, "day": day, "weekday": weekdayVal, "hour": hour, "minute": minute,
-                           "second": second, "repeat": repeatVal, "task_name": name, "type": "add_task"};
+            "year": year, "month": monthVal, "day": day, "weekday": weekdayVal, "hour": hour, "minute": minute,
+            "second": second, "repeat": repeatVal, "task_name": name, "type": "add_task"};
         function is_data_valid() {
             function isNumeric(str) {
                 return !isNaN(str) && !isNaN(parseInt(str, 10));
@@ -105,36 +105,36 @@ export default function SchedulePage() {
     }
 
     return (
-            <Grid container spacing={4}>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Navbar />
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ScheduleForm nodeChange={(val) => setNodeID(val)} monthChange={(val) => setMonthVal(val)}
-                        weekdayChange={(val) => setWeekdayVal(val)} repeatChange={(val) => setRepeatVal(val)}/>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Grid container justifyContent='center'>
-                        <Button style={hover? (darkMode? hoverButtonStyleDark: hoverButtonStyle): (darkMode? defaultButtonStyleDark: defaultButtonStyle)}
-                                onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
-                                variant="contained" endIcon={<AlarmAddIcon />} onClick={handle_click}>
-                            Add Task
-                        </Button>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Grid container justifyContent='center'>
-                        <Typography variant='body2' style={darkMode? textStyleDark: textStyle}>{error}</Typography>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Grid container justifyContent='center'>
-                        <Typography style={darkMode? textStyleDark: textStyle}>Current Tasks:</Typography>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Tasks tasks={tasks} delete_function={deleteTask} />
+        <Grid container spacing={4}>
+            <Grid item xs={12}>
+                <Navbar />
+            </Grid>
+            <Grid item xs={12}>
+                <ScheduleForm nodeChange={(val) => setNodeID(val)} monthChange={(val) => setMonthVal(val)}
+                              weekdayChange={(val) => setWeekdayVal(val)} repeatChange={(val) => setRepeatVal(val)}/>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid container justifyContent='center'>
+                    <Button style={hover? (darkMode? hoverButtonStyleDark: hoverButtonStyle): (darkMode? defaultButtonStyleDark: defaultButtonStyle)}
+                            onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+                            variant="contained" endIcon={<AlarmAddIcon />} onClick={handle_click}>
+                        Add Task
+                    </Button>
                 </Grid>
             </Grid>
+            <Grid item xs={12}>
+                <Grid container justifyContent='center'>
+                    <Typography variant='body2' style={darkMode? textStyleDark: textStyle}>{error}</Typography>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid container justifyContent='center'>
+                    <Typography style={darkMode? textStyleDark: textStyle}>Current Tasks:</Typography>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Tasks tasks={tasks} delete_function={deleteTask} />
+            </Grid>
+        </Grid>
     );
 }

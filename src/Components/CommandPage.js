@@ -11,10 +11,10 @@ export default function CommandPage() {
 
     return (
         <Grid container spacing={4}>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Navbar />
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Commander />
             </Grid>
         </Grid>

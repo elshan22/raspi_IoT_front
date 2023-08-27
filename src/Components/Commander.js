@@ -44,10 +44,10 @@ export default function Commander( {id} ) {
 
     return (
         <Grid container spacing={id? 2: 6}>
-            <Grid item  xs={12} sm={12} md={12} lg={12}>
+            <Grid item  xs={12}>
                 <CommandForm id={id} type={'Command'} change_handle={(val) => setNodeID(val)} selector_handle={() => {}} />
             </Grid>
-            <Grid item  xs={12} sm={12} md={12} lg={12}>
+            <Grid item  xs={12}>
                 <Grid container justifyContent='center'>
                     <Button style={hover? (darkMode? hoverButtonStyleDark: hoverButtonStyle): (darkMode? defaultButtonStyleDark: defaultButtonStyle)} onMouseEnter={() => setHover(true)}
                             onMouseLeave={() => setHover(false)} variant="contained" endIcon={<SendIcon />} onClick={handle_click}>
@@ -55,7 +55,7 @@ export default function Commander( {id} ) {
                     </Button>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Typography variant='body2' style={darkMode? textStyleDark: textStyle}>{error}</Typography>
                 </Grid>

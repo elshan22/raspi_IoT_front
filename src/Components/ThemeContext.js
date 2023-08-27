@@ -19,9 +19,8 @@ export const ManualThemeProvider = ({ children }) => {
 
     const toggleTheme = () => {
         axios.post(BASE_URL + 'theme/', {'theme': !darkMode})
-            .then(response => console.log(response.status))
             .then(setDarkMode(!darkMode))
-            .catch(error => console.log(error.status));
+            .catch(error => console.log(error.response.status));
     };
 
     const value = {

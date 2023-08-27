@@ -63,10 +63,10 @@ export default function ConditionPage() {
         const blink_length = parseInt(document.getElementById('blink_length').value);
         const value1 = parseFloat(document.getElementById('first_value').value);
         const value2 = document.getElementById('second_value')?
-                                  parseFloat(document.getElementById('second_value').value): null;
+            parseFloat(document.getElementById('second_value').value): null;
         const data = {'sensor': sensor, 'node_id': actuator, 'blink_count': blink_count,
-                          'blink_length': blink_length, 'value1': value1, 'value2': value2,
-                          'condition': condition, 'type': 'conditional'};
+            'blink_length': blink_length, 'value1': value1, 'value2': value2,
+            'condition': condition, 'type': 'conditional'};
         function is_data_valid() {
             function isNumeric(str) {
                 return !isNaN(str) && !isNaN(parseInt(str, 10));
@@ -104,13 +104,13 @@ export default function ConditionPage() {
 
     return (
         <Grid container spacing={4}>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Navbar />
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <CommandForm type={'Condition'} change_handle={(val) => setActuator(val)} selector_handle={(val) => setSensor(val)} />
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <FormControl sx={{width: '300px'}}>
                         <InputLabel style={darkMode? selectLabelStyleDark: selectLabelStyle}>Condition</InputLabel>
@@ -133,7 +133,7 @@ export default function ConditionPage() {
                     </FormControl>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container spacing={6} justifyContent='center'>
                     <Grid item>
                         <TextField id="first_value" label={condition==='between-these'? 'From': 'Value'} InputProps={{
@@ -160,7 +160,7 @@ export default function ConditionPage() {
                         </Grid> : ''}
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Button style={hover? (darkMode? hoverButtonStyleDark: hoverButtonStyle): (darkMode? defaultButtonStyleDark: defaultButtonStyle)}
                             onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
@@ -169,17 +169,17 @@ export default function ConditionPage() {
                     </Button>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Typography variant='body2' style={darkMode? textStyleDark: textStyle}>{error}</Typography>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Typography style={darkMode? textStyleDark: textStyle}>Current Conditions:</Typography>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Conditions conditions={conditions} delete_function={deleteTask} />
             </Grid>
         </Grid>

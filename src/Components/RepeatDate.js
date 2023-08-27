@@ -21,12 +21,12 @@ export default function RepeatDate( {item} ) {
 
     return (
         <Grid container>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Typography variant='body2' style={darkMode? textStyleDark: textStyle}>Date & Time</Typography>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <GetCorrectDate />
             </Grid>
         </Grid>

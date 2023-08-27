@@ -42,10 +42,10 @@ export default function ScheduleForm( {repeatChange, weekdayChange, nodeChange, 
 
     return (
         <Grid container spacing={6}>
-            <Grid item  xs={12} sm={12} md={12} lg={12}>
+            <Grid item  xs={12}>
                 <CommandForm type={'Task'} change_handle={nodeHandle} />
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container spacing={6} justifyContent='center'>
                     <Grid item>
                         <TextField id="year" label="Year" InputProps={{
@@ -125,7 +125,7 @@ export default function ScheduleForm( {repeatChange, weekdayChange, nodeChange, 
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container spacing={6} justifyContent='center'>
                     <Grid item>
                         <TextField id="hour" label="Hour" InputProps={{

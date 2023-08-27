@@ -61,14 +61,14 @@ export default function Tasks( {tasks, delete_function} ) {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Grid container>
-                                    <Grid item xs={12} sm={12} md={12} lg={12}>
+                                    <Grid item xs={12}>
                                         <Grid container>
-                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                            <Grid item xs={12}>
                                                 <Grid container justifyContent='center'>
                                                     <Typography variant='body2' style={darkMode? textStyleDark: textStyle}>Task</Typography>
                                                 </Grid>
                                             </Grid>
-                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                            <Grid item xs={12}>
                                                 <List>
                                                     <ListItem style={darkMode? textStyleDark: textStyle}>
                                                         <ListItemAvatar>
@@ -101,7 +101,7 @@ export default function Tasks( {tasks, delete_function} ) {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} lg={12}>
+                                    <Grid item xs={12}>
                                         <RepeatDate item={item} />
                                     </Grid>
                                 </Grid>

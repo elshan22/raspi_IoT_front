@@ -19,20 +19,20 @@ export default function ReportPage () {
 
     return (
         <Grid container spacing={4}>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Navbar />
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Selector type='Sensor' change_handle={(val) => setNodeId(val)} />
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Typography variant='body1' style={darkMode? textStyleDark: textStyle}>NODE ID: {nodeId}</Typography>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Reporter id={nodeId} small={false} />
                 </Grid>

@@ -46,12 +46,12 @@ export default function Reporter( {id, small} ) {
 
     return (
         <Grid container spacing={small? 2: 6} justifyContent='center'>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container justifyContent='center'>
                     <Typography variant='body1' style={darkMode? textStyleDark: textStyle}>{data['type']}: {data[data['type'].toLowerCase()]}</Typography>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Grid container spacing={small? 2: 6} justifyContent='center'>
                     <Grid item>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -77,9 +77,9 @@ export default function Reporter( {id, small} ) {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12}>
                 <Chart data={vals} type={data['type']} small={small} />
             </Grid>
         </Grid>
-        );
+    );
 }
