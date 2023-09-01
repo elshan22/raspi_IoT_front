@@ -5,16 +5,12 @@ import {textStyle, textStyleDark} from "./style";
 import {useTheme} from "./ThemeContext";
 import Selector from "./Selector";
 import Reporter from "./Reporter";
-import Chart from "./Chart";
-import axios from "axios";
-import {BASE_URL} from "../index";
 
 export default function ReportPage () {
     const [nodeId, setNodeId] = useState(null);
     const {darkMode} = useTheme();
 
 
-    useEffect(() => {document.body.style.backgroundColor = darkMode? '#333333': '#cccccc'}, [darkMode]);
 
 
     return (

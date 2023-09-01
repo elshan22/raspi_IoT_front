@@ -7,7 +7,6 @@ import {useTheme} from "./ThemeContext";
 export default function CommandPage() {
     const { darkMode } = useTheme();
 
-    useEffect(() => {document.body.style.backgroundColor = darkMode? '#333333': '#cccccc'}, [darkMode]);
 
     return (
         <Grid container spacing={4}>

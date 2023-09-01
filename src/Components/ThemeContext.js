@@ -13,11 +13,15 @@ export const ManualThemeProvider = ({ children }) => {
 
     useEffect(() => {
         axios.get(BASE_URL + 'theme/')
-            .then(response => setDarkMode(response.data['theme']))
-            .catch(error => console.log(error.status));
+            .then(response => {
+                setDarkMode(response.data['theme']);
+                document.body.style.backgroundColor = response.data['dark']? '#333333': '#cccccc';
+            })
+            .catch(error => console.log(error.response.status));
     }, []);
 
     const toggleTheme = () => {
+        document.body.style.backgroundColor = darkMode? '#cccccc': '#333333';
         axios.post(BASE_URL + 'theme/', {'theme': !darkMode})
             .then(setDarkMode(!darkMode))
             .catch(error => console.log(error.response.status));

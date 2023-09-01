@@ -15,19 +15,25 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useTheme } from './ThemeContext';
 import RoomPreferencesIcon from '@mui/icons-material/RoomPreferences';
+import WifiIcon from '@mui/icons-material/Wifi';
+import WifiOffIcon from '@mui/icons-material/WifiOff';
 import {barStyle, barStyleDark, textStyle, textStyleDark} from "./style";
 
 export default function Navbar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [name, setName] = useState('');
+    const [user, setUser] = useState(null);
     const { darkMode, toggleTheme } = useTheme();
     const open = Boolean(anchorEl);
     const navigate = useNavigate();
 
     useEffect(() => {
             axios.get(BASE_URL + 'name/')
-                .then((response) => setName(response.data['name']))
-                .catch(error => console.log(error.status))}
+                .then((response) => {
+                    setUser(response.data['user']);
+                    setName(response.data['raspi_name']);
+                })
+                .catch(error => console.log(error.response.status))}
         , []);
 
     const handleMenu = (event) => {
@@ -107,6 +113,18 @@ export default function Navbar() {
                                 </Grid>
                             </Grid>
                         </MenuItem>
+                        <MenuItem onClick={() => navigate('/Connect')}>
+                            <Grid container spacing={2}>
+                                <Grid item>
+                                    {user? <WifiIcon />: <WifiOffIcon />}
+                                </Grid>
+                                <Grid item>
+                                    <Typography>
+                                        Connection
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </MenuItem>
                         <MenuItem onClick={changeTheme}>
                             <Grid container spacing={2}>
                                 <Grid item>
@@ -121,7 +139,7 @@ export default function Navbar() {
                         </MenuItem>
                     </Menu>
                 </div>
-                <Typography variant='h6' style={darkMode? textStyleDark: textStyle}>Welcome, {name}</Typography>
+                <Typography variant='h6' style={darkMode? textStyleDark: textStyle}>Welcome, {user? user['name']: name}</Typography>
             </Toolbar>
         </AppBar>
     );

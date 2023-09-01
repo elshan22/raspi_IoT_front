@@ -20,7 +20,7 @@ export default function EspNodes() {
 
     return (
         <Grid container spacing={6} justifyContent='center'>
-            {nodes.map((item, index) =>
+            {nodes.map((item) =>
                 <Grid item>
                     <EspCard info={item} />
                 </Grid>

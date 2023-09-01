@@ -40,7 +40,6 @@ export default function ConditionPage() {
     const [error, setError] = useState('');
     const {darkMode} = useTheme();
 
-    useEffect(() => {document.body.style.backgroundColor = darkMode? '#333333': '#cccccc'}, [darkMode]);
 
     useEffect(() => {
         updateList();

@@ -9,9 +9,11 @@ import ReportPage from "./Components/ReportPage";
 import SchedulePage from "./Components/SchedulePage";
 import {ManualThemeProvider} from "./Components/ThemeContext";
 import ConditionPage from "./Components/ConditionPage";
+import ConnectPage from "./Components/ConnectPage";
 
 
 export const BASE_URL = 'http://127.0.0.1:8000/';
+
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +25,7 @@ root.render(
                         <Route path='/ReportPage' element={<ReportPage />} />
                         <Route path='/TaskSchedule' element={<SchedulePage />} />
                         <Route path='/ConditionPage' element={<ConditionPage />} />
+                        <Route path='/Connect' element={<ConnectPage />} />
                     </Routes>
                 </Router>
             </ManualThemeProvider>
